@@ -1,0 +1,5 @@
+mydbaas-starting-project/bin/
+mydbaas-starting-project/build/
+.metadata/
+Servers/
+RemoteSystemsTempFiles/

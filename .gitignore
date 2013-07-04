@@ -1,5 +1,11 @@
 mydbaas-starting-project/bin/
 mydbaas-starting-project/build/
+mydbaas-common/bin/
+mydbaas-common/build/
+mydbaas-agent/bin/
+mydbaas-agent/build/
+mydbaas-api/bin/
+mydbaas-api/build/
 .metadata/
 Servers/
 RemoteSystemsTempFiles/

@@ -2,6 +2,9 @@
     <wb-module deploy-name="mydbaas-starting-project">
         <wb-resource deploy-path="/" source-path="/web" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="mydbaas-common.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/mydbaas-common/mydbaas-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="mydbaas"/>
         <property name="java-output-path" value="/mydbaas-starting-project/build/classes"/>
     </wb-module>

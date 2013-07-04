@@ -3,6 +3,7 @@
 	<name>mydbaas-starting-project</name>
 	<comment></comment>
 	<projects>
+		<project>mydbaas-common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

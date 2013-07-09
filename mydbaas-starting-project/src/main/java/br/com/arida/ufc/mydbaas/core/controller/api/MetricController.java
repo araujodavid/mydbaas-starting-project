@@ -38,7 +38,7 @@ public class MetricController {
 	 * Return json of the metric
 	 */
 	@Path("/single")
-	public void getMetricSingle(String metricName, String resourceType, String metricType, int queryType, int resourceID, String startDatetime, String endDatetime) {
+	public void getMetricSingle(String metricName, String resourceType, int queryType, int resourceID, String startDatetime, String endDatetime) {
 		Class<?> metricClass = null;
 		String sql = null;
 		

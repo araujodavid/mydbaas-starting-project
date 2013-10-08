@@ -26,7 +26,7 @@ import br.com.caelum.vraptor.view.DefaultStatus;
  */
 @Resource
 @Path("/host")
-public class HostReceiverController extends AbstractReceiver {
+public class HostReceiverController extends AbstractReceiver<MetricRepository> {
 
 	private HostRepository hostRepository;
 	

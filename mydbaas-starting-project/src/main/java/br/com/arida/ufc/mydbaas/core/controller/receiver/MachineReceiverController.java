@@ -24,7 +24,7 @@ import br.com.caelum.vraptor.view.DefaultStatus;
  */
 @Resource
 @Path("/machine")
-public class MachineReceiverController extends AbstractReceiver {
+public class MachineReceiverController extends AbstractReceiver<MetricRepository> {
 	
 	private VirtualMachineRepository machineRepository;
 	

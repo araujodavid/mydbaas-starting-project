@@ -95,7 +95,7 @@ public class DiskCollector extends AbstractCollector<DiskMetric> {
 		HttpResponse response;		
 		try {
 			response = this.sendMetric(params);
-			System.out.println(response.getStatusLine());
+			System.out.println(response.getStatusLine()+" - Disk");
 			if (response.getStatusLine().getStatusCode() != 202) {
 				System.out.println("Disk request error!");
 				EntityUtils.consume(response.getEntity());

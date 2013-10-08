@@ -12,10 +12,10 @@ import com.google.gson.reflect.TypeToken;
  */
 public class Size extends AbstractDatabaseMetric {
 
-	private double sizeUsed;
+	private double sizeUsed;		
 	
 	public double getSizeUsed() {
-		return sizeUsed;
+		return sizeUsed;	
 	}
 	
 	public void setSizeUsed(double sizeUsed) {

@@ -91,22 +91,16 @@ public class ActiveConnectionCollector extends AbstractCollector<ActiveConnectio
 				try {
 					params = this.loadRequestParams(new Date(), Integer.parseInt(dbms), 0);
 				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InvocationTargetException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -119,10 +113,8 @@ public class ActiveConnectionCollector extends AbstractCollector<ActiveConnectio
 					}
 					EntityUtils.consume(response.getEntity());
 				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -135,32 +127,25 @@ public class ActiveConnectionCollector extends AbstractCollector<ActiveConnectio
 				try {
 					this.loadMetric(args);
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SQLException e) {
-					System.out.println("Problem loading the ActiveConnections metric value (DBMS)");
+					System.out.println("Problem loading the ActiveConnections metric value (Database)");
 					e.printStackTrace();
 				}
 				
 				try {
 					params = this.loadRequestParams(new Date(), 0, Integer.parseInt(database));
 				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InvocationTargetException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -173,10 +158,8 @@ public class ActiveConnectionCollector extends AbstractCollector<ActiveConnectio
 					}
 					EntityUtils.consume(response.getEntity());
 				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

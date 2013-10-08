@@ -28,5 +28,4 @@ public class InformationDataMetric extends InformationData implements LoadMetric
 		this.setCyclo(Integer.parseInt(properties.getProperty("informationData.cycle")));
 		this.setEnabledDBMSs(properties.getProperty("informationData.dbms"));	
 	}
-
 }

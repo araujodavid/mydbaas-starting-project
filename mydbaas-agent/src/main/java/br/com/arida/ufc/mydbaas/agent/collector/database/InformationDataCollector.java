@@ -36,7 +36,11 @@ public class InformationDataCollector extends AbstractCollector<InformationDataM
 		//Checking DBMS type to make and execute the SQL
 		if (params[0].equals("MySQL")) {
 			String sql = "select (select count(*) from information_schema.schemata where schema_name not in ('mysql','information_schema','performance_schema')) as amount_db, " +
-						 "(select count(*) from information_schema.tables where table_schema not in ('mysql','information_schema','performance_schema')) as amount_tables " +
+						 "(select count(*) from information_schema.tables where table_schema not in ('mysql','information_schema','performance_schema')) as amount_tables, " +
+						 "(select count(*) from information_schema.statistics where table_schema not in ('mysql','information_schema','performance_schema')) as amount_index, " +
+						 "(select count(*) from information_schema.triggers where trigger_schema not in ('mysql','information_schema','performance_schema')) as amount_trigger, " +
+						 "(select count(*) from information_schema.views where table_schema not in ('mysql','information_schema','performance_schema')) as amount_views, " +
+						 "(select count(*) from information_schema.routines where routine_schema not in ('mysql','information_schema','performance_schema')) as amount_routines " +
 					     "from dual;";
 			resultSet = databaseConnection.executeSQL(connection, sql, null);
 		}
@@ -44,6 +48,10 @@ public class InformationDataCollector extends AbstractCollector<InformationDataM
 		while (resultSet != null && resultSet.next()) {
 			this.metric.setInformationDataTables(resultSet.getInt("amount_tables"));
 			this.metric.setInformationDataDatabases(resultSet.getInt("amount_db"));
+			this.metric.setInformationDataIndexs(resultSet.getInt("amount_index"));
+			this.metric.setInformationDataTriggers(resultSet.getInt("amount_trigger"));
+			this.metric.setInformationDataViews(resultSet.getInt("amount_views"));
+			this.metric.setInformationDataRoutines(resultSet.getInt("amount_routines"));
         }
 		resultSet.close();
 		connection.close();
@@ -103,5 +111,4 @@ public class InformationDataCollector extends AbstractCollector<InformationDataM
 			}
 		}		
 	}
-
 }

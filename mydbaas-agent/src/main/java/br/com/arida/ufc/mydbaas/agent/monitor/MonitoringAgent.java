@@ -97,7 +97,8 @@ public class MonitoringAgent {
 	public static void main(String[] args) {
 		MonitorInfoParser parser = MonitorInfoParser.getInstance();
 		try {
-			parser.loadContextFile(String.valueOf(args[0]));
+			//parser.loadContextFile(String.valueOf(args[0]));
+			parser.loadContextFile("/home/david/MyDBaaSMonitor/MyDBaaS Starting Project/mydbaas-agent/src/main/java/br/com/arida/ufc/mydbaas/agent/monitor/context.conf");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -115,19 +116,19 @@ public class MonitoringAgent {
 		DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
 		databaseConnection.loadDBMSProperties(parser.getProperties());
 		
-		if (parser.getType().equals("host")) {
-			//Collects information about the system and physical resources
-			HostInfoMetric hostInfoMetric = HostInfoMetric.getInstance();
-			hostInfoMetric.loadMetricProperties(parser.getProperties());		
-			HostInfoCollector hostInfoCollector = new HostInfoCollector(parser.getIdentifier(), parser.getType());
-			hostInfoCollector.run();
-		} else if (parser.getType().equals("machine")) {
-			//Collects information about the system and physical resources
-			MachineMetric machineMetric = MachineMetric.getInstance();
-			machineMetric.loadMetricProperties(parser.getProperties());		
-			MachineCollector machineCollector = new MachineCollector(parser.getIdentifier(), parser.getType());
-			machineCollector.run();
-		}		
+//		if (parser.getType().equals("host")) {
+//			//Collects information about the system and physical resources
+//			HostInfoMetric hostInfoMetric = HostInfoMetric.getInstance();
+//			hostInfoMetric.loadMetricProperties(parser.getProperties());		
+//			HostInfoCollector hostInfoCollector = new HostInfoCollector(parser.getIdentifier(), parser.getType());
+//			hostInfoCollector.run();
+//		} else if (parser.getType().equals("machine")) {
+//			//Collects information about the system and physical resources
+//			MachineMetric machineMetric = MachineMetric.getInstance();
+//			machineMetric.loadMetricProperties(parser.getProperties());		
+//			MachineCollector machineCollector = new MachineCollector(parser.getIdentifier(), parser.getType());
+//			machineCollector.run();
+//		}		
 		
 		try {
 			//Get enabled metric in the conf file

@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
  * @version 2.0
  * @since March 13, 2013 
  */
+
 public class Disk extends AbstractMetric {
 
 	private long diskBytesRead;
@@ -20,7 +21,7 @@ public class Disk extends AbstractMetric {
 	private double diskUsed;
 	private double diskTotal;
 	private double diskPercent;
-		
+	
 	public long getDiskBytesRead() {
 		return diskBytesRead;
 	}

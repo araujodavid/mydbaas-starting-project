@@ -1,6 +1,10 @@
 package main.java.br.com.arida.ufc.mydbaas.common.metric.host;
 
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import main.java.br.com.arida.ufc.mydbaas.common.metric.common.AbstractMetric;
 
 /**
@@ -8,6 +12,7 @@ import main.java.br.com.arida.ufc.mydbaas.common.metric.common.AbstractMetric;
  * @version 2.0
  * @since April 28, 2013
  */
+
 public class HostInfo extends AbstractMetric {
 
 	private String hostInfoName;
@@ -80,9 +85,10 @@ public class HostInfo extends AbstractMetric {
 	}
 
 	@Override
-	public List<?> jsonToList(String json) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<HostInfo> jsonToList(String json) {
+		Gson gson = new Gson();
+		List<HostInfo> hostInfoList = gson.fromJson(json, new TypeToken<List<HostInfo>>(){}.getType());
+		return hostInfoList;
 	}
 
 }

@@ -14,6 +14,10 @@ public class InformationData extends AbstractDatabaseMetric {
 
 	private int informationDataDatabases;
 	private int informationDataTables;
+	private int informationDataIndexs;
+	private int informationDataTriggers;
+	private int informationDataViews;
+	private int informationDataRoutines;
 	
 	public int getInformationDataDatabases() {
 		return informationDataDatabases;
@@ -29,6 +33,38 @@ public class InformationData extends AbstractDatabaseMetric {
 
 	public void setInformationDataTables(int informationDataTables) {
 		this.informationDataTables = informationDataTables;
+	}
+
+	public int getInformationDataIndexs() {
+		return informationDataIndexs;
+	}
+
+	public void setInformationDataIndexs(int informationDataIndexs) {
+		this.informationDataIndexs = informationDataIndexs;
+	}
+
+	public int getInformationDataTriggers() {
+		return informationDataTriggers;
+	}
+
+	public void setInformationDataTriggers(int informationDataTriggers) {
+		this.informationDataTriggers = informationDataTriggers;
+	}
+
+	public int getInformationDataViews() {
+		return informationDataViews;
+	}
+
+	public void setInformationDataViews(int informationDataViews) {
+		this.informationDataViews = informationDataViews;
+	}
+
+	public int getInformationDataRoutines() {
+		return informationDataRoutines;
+	}
+
+	public void setInformationDataRoutines(int informationDataRoutines) {
+		this.informationDataRoutines = informationDataRoutines;
 	}
 
 	@Override

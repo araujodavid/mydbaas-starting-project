@@ -1,6 +1,10 @@
 package main.java.br.com.arida.ufc.mydbaas.common.metric.machine;
 
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import main.java.br.com.arida.ufc.mydbaas.common.metric.common.AbstractMetric;
 
 /**
@@ -8,6 +12,7 @@ import main.java.br.com.arida.ufc.mydbaas.common.metric.common.AbstractMetric;
  * @version 2.0
  * @since March 13, 2013
  */
+
 public class Machine extends AbstractMetric {
 
 	private String machineOperatingSystem;
@@ -19,6 +24,20 @@ public class Machine extends AbstractMetric {
 	private int machineTotalCPUCores;
 	private int machineTotalCPUSockets;
 	private int machineTotalCoresPerSocket;
+	
+	@Override
+	public String toString() {
+		return "machine";
+	}
+	
+	@Override
+	public List<Machine> jsonToList(String json) {
+		Gson gson = new Gson();
+		List<Machine> machineList = gson.fromJson(json, new TypeToken<List<Machine>>(){}.getType());
+		return machineList;
+	}
+	
+	//Getters and Setters
 	
 	public String getMachineOperatingSystem() {
 		return machineOperatingSystem;
@@ -92,14 +111,5 @@ public class Machine extends AbstractMetric {
 		this.machineTotalCoresPerSocket = machineTotalCoresPerSocket;
 	}
 
-	@Override
-	public String toString() {
-		return "machine";
-	}
 
-	@Override
-	public List<?> jsonToList(String json) {
-		// TODO Auto-generated method stub
-		return null;
-	}	
 }

@@ -35,6 +35,7 @@ public class NetworkTraffic extends AbstractDatabaseMetric {
 	public String toString() {
 		return "database";
 	}
+	
 	@Override
 	public List<NetworkTraffic> jsonToList(String json) {
 		Gson gson = new Gson();

@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import com.sun.xml.internal.ws.util.StringUtils;
 import main.java.br.com.arida.ufc.mydbaas.common.metric.common.AbstractMetric;
+import main.java.br.com.arida.ufc.mydbaas.core.repository.common.AbstractMetricRepository;
 import main.java.br.com.arida.ufc.mydbaas.core.repository.connection.ConnectionPool;
 import main.java.br.com.arida.ufc.mydbaas.core.util.DataUtil;
 import main.java.br.com.arida.ufc.mydbaas.core.util.TypeTranslater;
@@ -24,7 +25,7 @@ import br.com.caelum.vraptor.ioc.Component;
  */
 
 @Component
-public class MetricRepository {
+public class MetricRepository extends AbstractMetricRepository {
 	
 	public static final int ALL_COLLECTION = 0;
 	public static final int LAST_COLLECTION = 1;
@@ -70,7 +71,7 @@ public class MetricRepository {
 	 * @param recordDate
 	 * @return true if the metric is saved
 	 */
-	private boolean insertMetric(Object metric, String recordDate, int machine, int host, int dbms, int database) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+	protected boolean insertMetric(Object metric, String recordDate, int machine, int host, int dbms, int database) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		List<Field> fields = this.getMetricFields(metric);
 		Class<?> clazz = metric.getClass();	
 		
@@ -452,6 +453,33 @@ public class MetricRepository {
 		Method methodSetRecordDate = AbstractMetric.class.getDeclaredMethod("setRecordDate", String.class);
 		methodSetRecordDate.invoke(metric, DataUtil.convertDateToStringAPI(resultSet.getTimestamp("record_date")));
 		return metric;
+	}
+
+	@Override
+	public String makeCreateTableCommand(Object metric, List<Field> fields) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String makeInsertCommand(Object metric, List<Field> fields,
+			int machine, int host, int dbms, int database) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<String> getMetricTables() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String makeQueryCommand(Class<?> metricClass, int queryType,
+			String resourceType, int resourceID, int queryRange,
+			String startDatetime, String endDatetime) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 
